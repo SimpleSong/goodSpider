@@ -42,7 +42,7 @@ class InputmongodbPipeline(object):
     def process_item(self, item, spider):
 
         if not type(item) == MongodbItem:
-            return
+            return item
 
         postItem = dict(item)  # 把item转化成字典形式
         self.post.insert(postItem)  # 向数据库插入一条记录

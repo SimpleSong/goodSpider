@@ -23,6 +23,7 @@ class A1688Spider(scrapy.Spider):
         for item in items:
              urls.append( item.css('::attr(href)').extract_first() )
 
+        yield scrapy.Request(url=urls[0], callback=self.parse)
         for url in urls:
             yield scrapy.Request(url=url,callback=self.parse)
 
@@ -81,8 +82,6 @@ class A1688Spider(scrapy.Spider):
         for i in range(length):
             details[des[i * 2].css('::text').extract_first()] = des[i * 2 + 1].css('::text').extract_first()
         mongoItem['details'] = details
-        self.log('ooooooo')
-        self.log(mongoItem)
         yield mongoItem
 
 
