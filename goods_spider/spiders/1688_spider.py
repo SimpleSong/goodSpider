@@ -25,7 +25,7 @@ class A1688Spider(scrapy.Spider):
 
         yield scrapy.Request(url=urls[0], callback=self.parse)
         for url in urls:
-            yield scrapy.Request(url=url,callback=self.parse)
+            yield scrapy.Request(url=url, callback=self.parse)
 
         next_page = response.css('.next').extract_first()  # css选择器提取下一页链接
 
@@ -81,6 +81,8 @@ class A1688Spider(scrapy.Spider):
         length = int(len(des) / 2)
         for i in range(length):
             details[des[i * 2].css('::text').extract_first()] = des[i * 2 + 1].css('::text').extract_first()
+        if None in details:
+            details.pop(None)
         mongoItem['details'] = details
         yield mongoItem
 
