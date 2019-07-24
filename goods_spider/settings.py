@@ -15,8 +15,8 @@ SPIDER_MODULES = ['goods_spider.spiders']
 NEWSPIDER_MODULE = 'goods_spider.spiders'
 
 # 设置图片存储目录
-# IMAGES_STORE = '/Users/outdog/data/wd/image/法国S家-sandro'
-IMAGES_STORE = '/Users/outdog/data/wd/法国M家-maje'
+IMAGES_STORE = '/Users/outdog/data/1688/黯汲/all'
+# IMAGES_STORE = '/Users/outdog/data/1688/上新'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'maje_1688_items (+http://www.yourdomain.com)'
@@ -69,7 +69,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'goods_spider.pipelines.ImageItemsPipeline': 300,
+   'goods_spider.pipelines.ImageItemsPipeline': 300,
    'goods_spider.pipelines.InputmongodbPipeline': 1,
 }
 

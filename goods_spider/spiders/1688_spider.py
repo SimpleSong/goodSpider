@@ -9,7 +9,7 @@ class A1688Spider(scrapy.Spider):
     name = '1688Spider'
 
     def start_requests(self):
-        startUrl = 'https://kaikunzhiyichang.1688.com/page/offerlist_123366798.htm'
+        startUrl = 'https://shop1475254196895.1688.com/page/offerlist.htm?suggestiontype=winport&spm=a2615.2177701.20151125147.d147&keywords=s%BC%D22019%B4%BA%CF%C4%D0%C2%C6%B7%C5%AE%D7%B0+%BA%DA%C9%AB%C0%D9%CB%BF%D3%A1%BB%A8%C6%B4%BD%D3%CD%B8%CA%D3%B3%C4%C9%C0%B0%D9%B4%EE%CA%E7%C5%AE%D5%E6%CB%BF%C9%CF%D2%C2'
         yield scrapy.Request(url=startUrl, callback=self.pageView)
 
     def pageView(self, response):
